@@ -5,4 +5,5 @@ class AppConstant {
   //==============
 
   static String filterSvg = 'assets/svg/Filter.svg';
+  static String avroIconSvg = 'assets/svg/avrocode.svg';
 }

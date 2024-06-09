@@ -51,7 +51,7 @@ PreferredSizeWidget customAppBar(
           color: Colors.white,
         ),
       ),
-      gapW(2),
+      gapW(3),
     ],
   );
 }
