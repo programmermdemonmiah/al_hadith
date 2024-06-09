@@ -3,4 +3,6 @@ class AppConstant {
   static String kfgqArabicFont = 'KFGQPC';
 
   //==============
+
+  static String filterSvg = 'assets/svg/Filter.svg';
 }

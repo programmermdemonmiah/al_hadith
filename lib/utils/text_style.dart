@@ -10,16 +10,16 @@ class AppTextStyle {
   //       fontWeight: FontWeight.w400);
   // }
 
-  static TextStyle tittleBig1({color, required context}) {
+  static TextStyle bTittleBig1({color, required context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontFamily: 'Manrope',
-      fontSize: 17.sp,
+      fontFamily: AppConstant.kalpurushBaglaFont,
+      fontSize: 19.sp,
       fontWeight: FontWeight.w700,
     );
   }
 
-  static TextStyle tittleBig2({
+  static TextStyle bTittleBig2({
     color,
     required context,
     TextDecoration? decoration,
@@ -27,24 +27,24 @@ class AppTextStyle {
   }) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontFamily: 'Manrope',
+      fontFamily: AppConstant.kalpurushBaglaFont,
       decoration: decoration ?? TextDecoration.none,
       decorationThickness: decorationThickness,
-      fontSize: 16.sp,
+      fontSize: 18.sp,
       fontWeight: FontWeight.w700,
     );
   }
 
-  static TextStyle btittleBig3({color, required context}) {
+  static TextStyle bTittleBig3({color, required context}) {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 15.sp,
+      fontSize: 17.sp,
       fontWeight: FontWeight.w700,
     );
   }
 
-  static TextStyle tittleBig4({
+  static TextStyle bTittleBig4({
     color,
     required context,
     TextDecoration? decoration,
@@ -52,29 +52,29 @@ class AppTextStyle {
   }) {
     return TextStyle(
       color: color ?? Colors.black87,
-      fontFamily: 'Manrope',
+      fontFamily: AppConstant.kalpurushBaglaFont,
       decoration: decoration ?? TextDecoration.none,
       decorationThickness: decorationThickness,
-      fontSize: 14.sp,
+      fontSize: 16.sp,
       fontWeight: FontWeight.w700,
     );
   }
 
   //======================
-  static TextStyle tittleSmall1(
+  static TextStyle bTittleSmall1(
       {Color? color,
       FontWeight? fontWeight,
       double? size,
       required BuildContext context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontFamily: 'Manrope',
-      fontSize: 13.sp,
+      fontFamily: AppConstant.kalpurushBaglaFont,
+      fontSize: 15.sp,
       fontWeight: fontWeight ?? FontWeight.w600,
     );
   }
 
-  static TextStyle tittleSmall2(
+  static TextStyle bTittleSmall2(
       {Color? color,
       TextDecoration? decoration,
       FontWeight? fontWeight,
@@ -82,152 +82,106 @@ class AppTextStyle {
       required BuildContext context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontFamily: 'Manrope',
-      fontSize: 12.5.sp,
+      fontFamily: AppConstant.kalpurushBaglaFont,
+      fontSize: 14.5.sp,
       decoration: decoration ?? TextDecoration.none,
       decorationThickness: decorationThickness,
       fontWeight: fontWeight ?? FontWeight.w600,
     );
   }
 
-  static TextStyle tittleSmall3(
+  static TextStyle bTittleSmall3(
       {Color? color,
       FontWeight? fontWeight,
       double? size,
       required BuildContext context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontFamily: 'Manrope',
-      fontSize: 11.5.sp,
+      fontFamily: AppConstant.kalpurushBaglaFont,
+      fontSize: 13.5.sp,
       fontWeight: fontWeight ?? FontWeight.w600,
     );
   }
 
-  static TextStyle tittleSmall4(
+  static TextStyle bTittleSmall4(
       {Color? color, double? size, required BuildContext context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontFamily: 'Manrope',
-      fontSize: 10.3.sp,
+      fontFamily: AppConstant.kalpurushBaglaFont,
+      fontSize: 12.3.sp,
       fontWeight: FontWeight.w600,
     );
   }
 
-  // //================
-  // static TextStyle subTittleSmallB1(
-  //     {Color? color, double? size, required BuildContext context}) {
-  //   return TextStyle(
-  //     color: color ?? Colors.black,
-  //     fontFamily: 'Manrope',
-
-  //     fontSize: size ?? Get.width * 0.040,
-  //     fontWeight: FontWeight.w600,
-  //   );
-  // }
-
-  // static TextStyle subTittleSmallB2(
-  //     {Color? color, double? size, required BuildContext context}) {
-  //   return TextStyle(
-  //     color: color ?? Colors.black,
-  //     fontFamily: 'Manrope',
-
-  //     fontSize: size ?? Get.width * 0.035,
-  //     fontWeight: FontWeight.w600,
-  //   );
-  // }
-
-  // //================
-  // static TextStyle subTittleSmall1(
-  //     {Color? color, double? size, required BuildContext context}) {
-  //   return TextStyle(
-  //     fontFamily: 'Manrope',
-
-  //     color: color ?? Colors.black,
-  //     fontSize: 17.sp,
-  //     fontWeight: FontWeight.w500,
-  //   );
-  // }
-
-  // static TextStyle subTittleSmall2(
-  //     {Color? color, double? size, required BuildContext context}) {
-  //   return TextStyle(
-  //     color: color ?? Colors.black,
-  //     fontSize: 16.sp,
-  //     fontWeight: FontWeight.w500,
-  //     fontFamily: 'Manrope',
-
-  //   );
-  // }
-
   //=============text====
-  static TextStyle text1({Color? color, fontWeight, required context}) {
+  static TextStyle bText1({Color? color, fontWeight, required context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontFamily: 'Manrope',
+      fontFamily: AppConstant.kalpurushBaglaFont,
+      fontSize: 16.sp,
+      fontWeight: fontWeight ?? FontWeight.w500,
+    );
+  }
+
+  static TextStyle bText2({Color? color, fontWeight, required context}) {
+    return TextStyle(
+      color: color ?? Colors.black,
+      fontFamily: AppConstant.kalpurushBaglaFont,
+      fontSize: 15.sp,
+      fontWeight: fontWeight ?? FontWeight.w500,
+    );
+  }
+
+  static TextStyle bText3({Color? color, required context}) {
+    return TextStyle(
+      color: color ?? Colors.black,
+      fontFamily: AppConstant.kalpurushBaglaFont,
       fontSize: 14.sp,
-      fontWeight: fontWeight ?? FontWeight.w500,
-    );
-  }
-
-  static TextStyle text2({Color? color, fontWeight, required context}) {
-    return TextStyle(
-      color: color ?? Colors.black,
-      fontFamily: 'Manrope',
-      fontSize: 13.sp,
-      fontWeight: fontWeight ?? FontWeight.w500,
-    );
-  }
-
-  static TextStyle text3({Color? color, required context}) {
-    return TextStyle(
-      color: color ?? Colors.black,
-      fontFamily: 'Manrope',
-      fontSize: 12.sp,
       fontWeight: FontWeight.w500,
     );
   }
 
-  static TextStyle text4({Color? color, fontWeight, required context}) {
+  static TextStyle bText4({Color? color, fontWeight, required context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontSize: 11.sp,
-      fontFamily: 'Manrope',
+      fontSize: 13.sp,
+      fontFamily: AppConstant.kalpurushBaglaFont,
       fontWeight: FontWeight.w500,
     );
   }
 
   //=====================paragraph=======
-  static TextStyle paragraph1({Color? color, required context}) {
+  static TextStyle bParagraph1({Color? color, required context}) {
     return TextStyle(
       color: color ?? Colors.black54,
       fontSize: 14.sp,
       fontWeight: FontWeight.w400,
-      fontFamily: 'Manrope',
+      fontFamily: AppConstant.kalpurushBaglaFont,
     );
   }
 
-  static TextStyle paragraph2({Color? color, required context}) {
+  static TextStyle bParagraph2({Color? color, required context}) {
     return TextStyle(
       color: color ?? Colors.black54,
       fontSize: 12.5.sp,
       fontWeight: FontWeight.w400,
-      fontFamily: 'Manrope',
+      fontFamily: AppConstant.kalpurushBaglaFont,
     );
   }
 
-  static TextStyle paragraph3({Color? color, required context}) {
+  static TextStyle bParagraph3({Color? color, required context}) {
     return TextStyle(
       color: color ?? Colors.black54,
-      fontFamily: 'Manrope',
+      fontFamily: AppConstant.kalpurushBaglaFont,
       fontSize: 11.sp,
       fontWeight: FontWeight.w400,
     );
   }
 
-  static TextStyle paragraph4({Color? color, required context}) {
+  static TextStyle bParagraph4({Color? color, required context}) {
     return TextStyle(
       color: color ?? Colors.black54,
-      fontFamily: 'Manrope',
+      fontFamily: AppConstant.kalpurushBaglaFont,
       fontSize: 9.5.sp,
       fontWeight: FontWeight.w400,
     );

@@ -13,8 +13,9 @@ void main() async {
     statusBarColor: primaryColor,
     statusBarBrightness: Brightness.dark,
     statusBarIconBrightness: Brightness.light,
-    // systemNavigationBarColor: primaryRed,
+    // systemNavigationBarColor: primaryColor,
   ));
+
   // Set preferred orientations
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -34,11 +35,18 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             // title: 'Flutter Demo',
             theme: ThemeData(
-              // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              // colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
               // useMaterial3: true,
               scaffoldBackgroundColor: whiteBg,
-
-              // colorScheme.colo: whiteBg,
+              appBarTheme: AppBarTheme(
+                backgroundColor: primaryColor,
+                systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: primaryColor,
+                  statusBarIconBrightness: Brightness.light,
+                  statusBarBrightness: Brightness.dark,
+                ),
+              ),
+              // colorScheme.iconColor: whiteBg,
               // fontFamily: AppConstant.manrope
             ),
             home: const HomePage(),
