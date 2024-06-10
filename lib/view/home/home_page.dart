@@ -26,18 +26,17 @@ class HomePage extends StatelessWidget {
                       crossAxisCount: 3,
                       crossAxisSpacing: 6.sp,
                       mainAxisSpacing: 6.sp),
-                  itemCount: controller.bookContentList.length,
+                  itemCount: controller.booksList.length,
                   shrinkWrap: true,
                   primary: false,
                   itemBuilder: (context, index) {
-                    final data = controller.bookContentList[index];
+                    final data = controller.booksList[index];
                     return InkWell(
                       onTap: () {
-                        Get.to(HadithPage(
-                          appbarTitle: data.bookTitle.toString(),
-                          appBarSubTitle: data.chapterTitle.toString(),
-                          hadith: data,
-                        ));
+                        controller.gotoHadithPage(
+                            data.bookId!,
+                            data.titleBn.toString(),
+                            data.bookAbvrCode.toString());
                       },
                       child: Container(
                         height: 100.sp,
@@ -48,7 +47,7 @@ class HomePage extends StatelessWidget {
                           color: primaryColor,
                         ),
                         child: Text(
-                          data.bookTitle.toString(),
+                          data.titleBn.toString(),
                           style: AppTextStyle.bTittleBig3(
                               context: context, color: Colors.white),
                         ),

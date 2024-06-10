@@ -77,4 +77,93 @@ JOIN
 
     return allData;
   }
+
+  static Future<List<Map<String, dynamic>>> getBookData() async {
+    if (_database == null) {
+      await initDB();
+    }
+
+    final db = _database!;
+    final allData = await db.rawQuery('''
+      SELECT
+      id as book_id,
+      book_name,
+      title as title_bn,
+      title_ar,
+      abvr_code as book_abvr_code,
+      book_descr,
+      number_of_hadis
+    FROM books;
+    ''');
+    return allData;
+  }
+
+  static Future<List<Map<String, dynamic>>> getChapterData() async {
+    if (_database == null) {
+      await initDB();
+    }
+
+    final db = _database!;
+    final allData = await db.rawQuery('''
+    SELECT
+      chapter_id,
+      book_id,
+      title,
+      number,
+      hadis_range,
+      book_name
+    FROM chapter;
+  ''');
+
+    return allData;
+  }
+
+  static Future<List<Map<String, dynamic>>> getSectionData() async {
+    if (_database == null) {
+      await initDB();
+    }
+
+    final db = _database!;
+    final allData = await db.rawQuery('''
+    SELECT
+      id,
+      book_id,
+      book_name,
+      chapter_id,
+      section_id,
+      title,
+      preface,
+      number
+    FROM section;
+  ''');
+
+    return allData;
+  }
+
+  static Future<List<Map<String, dynamic>>> getHadithData() async {
+    if (_database == null) {
+      await initDB();
+    }
+
+    final db = _database!;
+    final allData = await db.rawQuery('''
+    SELECT
+      hadith_id,
+      book_id,
+      book_name,
+      chapter_id,
+      section_id,
+      narrator,
+      bn,
+      ar,
+      ar_diacless,
+      note,
+      grade_id,
+      grade,
+      grade_color
+    FROM hadith;
+  ''');
+
+    return allData;
+  }
 }
