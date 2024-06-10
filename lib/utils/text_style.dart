@@ -14,7 +14,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 20.sp,
+      fontSize: 21.sp,
       fontWeight: FontWeight.w700,
     );
   }
@@ -30,7 +30,7 @@ class AppTextStyle {
       fontFamily: AppConstant.kalpurushBaglaFont,
       decoration: decoration ?? TextDecoration.none,
       decorationThickness: decorationThickness,
-      fontSize: 19.sp,
+      fontSize: 20.sp,
       fontWeight: FontWeight.w700,
     );
   }
@@ -39,7 +39,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 18.sp,
+      fontSize: 19.sp,
       fontWeight: FontWeight.w700,
     );
   }
@@ -55,7 +55,7 @@ class AppTextStyle {
       fontFamily: AppConstant.kalpurushBaglaFont,
       decoration: decoration ?? TextDecoration.none,
       decorationThickness: decorationThickness,
-      fontSize: 17.sp,
+      fontSize: 18.sp,
       fontWeight: FontWeight.w700,
     );
   }
@@ -69,7 +69,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 16.sp,
+      fontSize: 17.sp,
       fontWeight: fontWeight ?? FontWeight.w600,
     );
   }
@@ -83,7 +83,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 15.5.sp,
+      fontSize: 16.5.sp,
       decoration: decoration ?? TextDecoration.none,
       decorationThickness: decorationThickness,
       fontWeight: fontWeight ?? FontWeight.w600,
@@ -98,7 +98,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 14.5.sp,
+      fontSize: 15.5.sp,
       fontWeight: fontWeight ?? FontWeight.w600,
     );
   }
@@ -108,7 +108,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 13.3.sp,
+      fontSize: 14.3.sp,
       fontWeight: FontWeight.w600,
     );
   }
@@ -120,7 +120,7 @@ class AppTextStyle {
       color: color ?? Colors.black,
       fontFamily:
           arabic ? AppConstant.kfgqArabicFont : AppConstant.kalpurushBaglaFont,
-      fontSize: arabic ? 26.sp : 17.sp,
+      fontSize: arabic ? 26.sp : 18.sp,
       fontWeight: fontWeight ?? FontWeight.w500,
     );
   }
@@ -131,7 +131,7 @@ class AppTextStyle {
       color: color ?? Colors.black,
       fontFamily:
           arabic ? AppConstant.kfgqArabicFont : AppConstant.kalpurushBaglaFont,
-      fontSize: arabic ? 25.sp : 16.sp,
+      fontSize: arabic ? 25.sp : 17.sp,
       fontWeight: fontWeight ?? FontWeight.w500,
     );
   }
@@ -140,7 +140,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 15.sp,
+      fontSize: 16.sp,
       fontWeight: FontWeight.w500,
     );
   }
@@ -148,7 +148,7 @@ class AppTextStyle {
   static TextStyle bText4({Color? color, fontWeight, required context}) {
     return TextStyle(
       color: color ?? Colors.black,
-      fontSize: 14.sp,
+      fontSize: 15.sp,
       fontFamily: AppConstant.kalpurushBaglaFont,
       fontWeight: FontWeight.w500,
     );
@@ -158,7 +158,7 @@ class AppTextStyle {
   static TextStyle bParagraph1({Color? color, required context}) {
     return TextStyle(
       color: color ?? Colors.black54,
-      fontSize: 16.sp,
+      fontSize: 17.sp,
       fontWeight: FontWeight.w400,
       fontFamily: AppConstant.kalpurushBaglaFont,
     );
@@ -167,7 +167,7 @@ class AppTextStyle {
   static TextStyle bParagraph2({Color? color, required context}) {
     return TextStyle(
       color: color ?? Colors.black54,
-      fontSize: 15.5.sp,
+      fontSize: 16.5.sp,
       fontWeight: FontWeight.w400,
       fontFamily: AppConstant.kalpurushBaglaFont,
     );
@@ -177,7 +177,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black54,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 14.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.w400,
     );
   }
@@ -186,7 +186,7 @@ class AppTextStyle {
     return TextStyle(
       color: color ?? Colors.black54,
       fontFamily: AppConstant.kalpurushBaglaFont,
-      fontSize: 13.5.sp,
+      fontSize: 14.5.sp,
       fontWeight: FontWeight.w400,
     );
   }

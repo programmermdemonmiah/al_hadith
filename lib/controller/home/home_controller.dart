@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:al_hadith/controller/common/db_controller.dart';
 import 'package:al_hadith/model/books_model.dart';
@@ -6,7 +5,6 @@ import 'package:al_hadith/model/chapter_model.dart';
 import 'package:al_hadith/model/hadith_model.dart';
 import 'package:al_hadith/model/section_model.dart';
 import 'package:al_hadith/view/hadith/hadith_page.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {

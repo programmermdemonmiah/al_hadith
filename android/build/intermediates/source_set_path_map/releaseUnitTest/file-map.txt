@@ -1,0 +1,7 @@
+io.flutter.plugins.pathprovider.test-test-0 H:\Flutter Project\al_hadith\android\build\generated\res\resValues\test\release
+io.flutter.plugins.pathprovider.test-mergeReleaseUnitTestResources-1 H:\Flutter Project\al_hadith\android\build\intermediates\incremental\releaseUnitTest\mergeReleaseUnitTestResources\merged.dir
+io.flutter.plugins.pathprovider.test-mergeReleaseUnitTestResources-2 H:\Flutter Project\al_hadith\android\build\intermediates\incremental\releaseUnitTest\mergeReleaseUnitTestResources\stripped.dir
+io.flutter.plugins.pathprovider.test-merged_res-3 H:\Flutter Project\al_hadith\android\build\intermediates\merged_res\releaseUnitTest
+io.flutter.plugins.pathprovider.test-packaged_res-4 H:\Flutter Project\al_hadith\android\build\intermediates\packaged_res\release
+io.flutter.plugins.pathprovider.test-test-5 H:\Flutter Project\al_hadith\android\src\test\res
+io.flutter.plugins.pathprovider.test-testRelease-6 H:\Flutter Project\al_hadith\android\src\testRelease\res
