@@ -13,6 +13,7 @@ PreferredSizeWidget customAppBar(
     required String appBarSubTitle,
     Color? appBarBg,
     Color? leadingColor,
+    bool isActionIcon = true,
     Color? textColor}) {
   return AppBar(
     backgroundColor: appBarBg ?? primaryColor,
@@ -39,19 +40,21 @@ PreferredSizeWidget customAppBar(
         ),
       ],
     ),
-    actions: [
-      Container(
-        padding: edgeInsetsAll(2),
-        decoration: BoxDecoration(
-            borderRadius: radiusAll(2.5),
-            border: Border.all(width: 1.5.sp, color: Colors.white)),
-        child: SvgPicture.asset(
-          AppConstant.filterSvg,
-          width: 16.sp,
-          color: Colors.white,
-        ),
-      ),
-      gapW(3),
-    ],
+    actions: isActionIcon
+        ? [
+            Container(
+              padding: edgeInsetsAll(2),
+              decoration: BoxDecoration(
+                  borderRadius: radiusAll(2.5),
+                  border: Border.all(width: 1.5.sp, color: Colors.white)),
+              child: SvgPicture.asset(
+                AppConstant.filterSvg,
+                width: 16.sp,
+                color: Colors.white,
+              ),
+            ),
+            gapW(3),
+          ]
+        : [],
   );
 }
