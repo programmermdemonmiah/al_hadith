@@ -85,6 +85,10 @@ Future<void> hadithModalBottomSheet({
                 itemName: "সম্পূর্ণ হাদিস কপি"),
             _customModalBottomItem(
                 context: context,
+                onTap: () {
+                  Get.back();
+                  controller.takeScreenshotAndShare();
+                },
                 icon: Icons.image_outlined,
                 itemName: "স্ক্রিনশট শেয়ার"),
             _customModalBottomItem(

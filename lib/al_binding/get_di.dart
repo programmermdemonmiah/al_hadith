@@ -1,3 +1,4 @@
+import 'package:al_hadith/controller/chapter/chapter_controller.dart';
 import 'package:al_hadith/controller/common/db_controller.dart';
 import 'package:al_hadith/controller/hadith/hadith_controller.dart';
 import 'package:al_hadith/controller/home/home_controller.dart';
@@ -8,5 +9,6 @@ init() async {
   await DBController.initDB();
   //================
   Get.lazyPut(() => HomeController(), fenix: true);
+  Get.lazyPut(() => ChapterController(), fenix: true);
   Get.lazyPut(() => HadithController(), fenix: true);
 }

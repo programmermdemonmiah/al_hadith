@@ -11,7 +11,6 @@ class DBController {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, "hadith_db.db");
 
-    // Check if the database exists
     final dataExist = await databaseExists(path);
 
     if (!dataExist) {
@@ -36,47 +35,47 @@ class DBController {
     await File(path).writeAsBytes(bytes, flush: true);
   }
 
-  static Future<List<Map<String, dynamic>>> getAllData() async {
-    if (_database == null) {
-      await initDB();
-    }
+//   static Future<List<Map<String, dynamic>>> getAllData() async {
+//     if (_database == null) {
+//       await initDB();
+//     }
 
-    final db = _database!;
-    final allData = await db.rawQuery('''
-        SELECT 
-    hadith.hadith_id as hadith_id,
-    hadith.book_id as book_id,
-    books.book_name as book_name,
-    books.title as book_title,
-    books.abvr_code as book_abvr_code,
-    hadith.chapter_id as chapter_id,
-    hadith.section_id as section_id,
-    hadith.narrator as narrator,
-    hadith.bn as bn,
-    hadith.ar as ar,
-    hadith.ar_diacless as ar_diacless,
-    hadith.note as note,
-    hadith.grade_id as grade_id,
-    hadith.grade as grade,
-    hadith.grade_color as grade_color,
-    chapter.title as chapter_title,
-    chapter.number as chapter_number,
-    section.title as section_title,
-    section.preface as section_preface,
-    section.number as section_number
-FROM 
-    hadith
-JOIN 
-    books ON hadith.book_id = books.id
-JOIN 
-    chapter ON hadith.chapter_id = chapter.id
-JOIN 
-    section ON hadith.section_id = section.id;
+//     final db = _database!;
+//     final allData = await db.rawQuery('''
+//         SELECT
+//     hadith.hadith_id as hadith_id,
+//     hadith.book_id as book_id,
+//     books.book_name as book_name,
+//     books.title as book_title,
+//     books.abvr_code as book_abvr_code,
+//     hadith.chapter_id as chapter_id,
+//     hadith.section_id as section_id,
+//     hadith.narrator as narrator,
+//     hadith.bn as bn,
+//     hadith.ar as ar,
+//     hadith.ar_diacless as ar_diacless,
+//     hadith.note as note,
+//     hadith.grade_id as grade_id,
+//     hadith.grade as grade,
+//     hadith.grade_color as grade_color,
+//     chapter.title as chapter_title,
+//     chapter.number as chapter_number,
+//     section.title as section_title,
+//     section.preface as section_preface,
+//     section.number as section_number
+// FROM
+//     hadith
+// JOIN
+//     books ON hadith.book_id = books.id
+// JOIN
+//     chapter ON hadith.chapter_id = chapter.id
+// JOIN
+//     section ON hadith.section_id = section.id;
 
-    ''');
+//     ''');
 
-    return allData;
-  }
+//     return allData;
+//   }
 
   static Future<List<Map<String, dynamic>>> getBookData() async {
     if (_database == null) {

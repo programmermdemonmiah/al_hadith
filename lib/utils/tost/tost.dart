@@ -5,9 +5,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 showTost(String message) {
   return Fluttertoast.showToast(
-      msg: "This is Center Short Toast",
+      msg: message,
       toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
+      gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
       backgroundColor: primaryColor,
       textColor: Colors.white,

@@ -1,0 +1,66 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Chrome",
+            "port": 8080,
+            "request": "attach",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "al_hadith (Mac)",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "mac"]
+        },
+        {
+            "name": "al_hadith (iOS)",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "ios"]
+        },
+        {
+            "name": "al_hadith (Android)",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "android"]
+        },
+        {
+            "name": "al_hadith (Web)",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "chrome"]
+        },
+        {
+            "name": "al_hadith (Linux)",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "linux"]
+        },
+        {
+            "name": "al_hadith",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "al_hadith (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "al_hadith (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                     final data = controller.booksList[index];
                     return InkWell(
                       onTap: () {
-                        controller.gotoHadithPage(
+                        controller.gotoChapterPage(
                             data.bookId!,
                             data.titleBn.toString(),
                             data.bookAbvrCode.toString());

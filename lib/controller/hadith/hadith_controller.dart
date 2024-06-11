@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:al_hadith/utils/tost/tost.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:share_plus/share_plus.dart';
 
 class HadithController extends GetxController {
   RxList savedHadithIdList = [].obs;
@@ -14,30 +15,27 @@ class HadithController extends GetxController {
 
   Future<void> textShare(String hadithText) async {
     try {
-      Share.share(hadithText);
+      // Share.share(hadithText); //flutter version 3.22.1 != share_plus or share version// so currently not work this
     } catch (e) {
       print(e);
     }
   }
 
-  // ScreenshotController screenshotController = ScreenshotController();
+  // final ScreenshotController screenshotController = ScreenshotController();
 
-  // Future<void> takeScreenshotAndShare() async {
-  //   final directory = (await getApplicationDocumentsDirectory()).path;
-  //   String fileName = 'screenshot.png';
-  //   String filePath = '$directory/$fileName';
-
-  //   screenshotController.capture().then((Uint8List? image) async {
-  //     if (image != null) {
-  //       final imageFile = File(filePath);
-  //       await imageFile.writeAsBytes(image);
-  //       final xfile = XFile(filePath);
-  //       Share.shareXFiles([xfile], text: 'Check out my screenshot!');
-  //     }
-  //   }).catchError((onError) {
-  //     print(onError);
-  //   });
-  // }
+  Future<void> takeScreenshotAndShare() async {
+    // final Uint8List? image = await screenshotController.capture();
+    // if (image != null) {
+    //   // final directory = await getTemporaryDirectory();
+    //   String fileName = 'screenshot.png';
+    //   String filePath = fileName; //${directory.path}
+    //   final imageFile = File(filePath);
+    //   await imageFile.writeAsBytes(image);
+    //   // Share.shareFiles([filePath], text: 'Check out my screenshot!');
+    // } else {
+    //   print('Failed to capture screenshot');
+    // }
+  }
 
   //==============convert
   String convertToBanglaNumber(int number) {
