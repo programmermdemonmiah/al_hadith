@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
-// import 'package:path_provider/path_provider.dart';
 
 class HadithController extends GetxController {
   RxList savedHadithIdList = [].obs;
@@ -24,9 +23,9 @@ class HadithController extends GetxController {
   // ScreenshotController screenshotController = ScreenshotController();
 
   // Future<void> takeScreenshotAndShare() async {
-  //   // final directory = (await getApplicationDocumentsDirectory()).path;
+  //   final directory = (await getApplicationDocumentsDirectory()).path;
   //   String fileName = 'screenshot.png';
-  //   // String filePath = '$directory/$fileName';
+  //   String filePath = '$directory/$fileName';
 
   //   screenshotController.capture().then((Uint8List? image) async {
   //     if (image != null) {

@@ -1,8 +1,0 @@
-io.flutter.plugins.pathprovider-pngs-0 H:\Flutter Project\al_hadith\android\build\generated\res\pngs\release
-io.flutter.plugins.pathprovider-resValues-1 H:\Flutter Project\al_hadith\android\build\generated\res\resValues\release
-io.flutter.plugins.pathprovider-rs-2 H:\Flutter Project\al_hadith\android\build\generated\res\rs\release
-io.flutter.plugins.pathprovider-mergeReleaseResources-3 H:\Flutter Project\al_hadith\android\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
-io.flutter.plugins.pathprovider-mergeReleaseResources-4 H:\Flutter Project\al_hadith\android\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-io.flutter.plugins.pathprovider-merged_res-5 H:\Flutter Project\al_hadith\android\build\intermediates\merged_res\release
-io.flutter.plugins.pathprovider-main-6 H:\Flutter Project\al_hadith\android\src\main\res
-io.flutter.plugins.pathprovider-release-7 H:\Flutter Project\al_hadith\android\src\release\res
