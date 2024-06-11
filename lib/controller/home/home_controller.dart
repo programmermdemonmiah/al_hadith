@@ -41,9 +41,9 @@ class HomeController extends GetxController {
 
   //route Chapter page ============
 
-  gotoChapterPage(int bookId, String bookTitle, String avrCode) {
+  gotoChapterPage(
+      int bookId, String bookTitle, String avrCode, int numberOfHadith) {
     List<ChapterModel> listofChapter = [];
-
     for (int i = 0; i < chapterList.length; i++) {
       final chapter = chapterList[i];
       if (bookId == chapter.bookId) {
@@ -56,6 +56,7 @@ class HomeController extends GetxController {
     Get.to(ChapterPage(
       bookName: bookTitle,
       bookId: bookId,
+      numberOfHadith: numberOfHadith,
       bookAvrCode: avrCode,
       chapterList: listofChapter,
     ));

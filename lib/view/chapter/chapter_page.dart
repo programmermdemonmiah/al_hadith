@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 class ChapterPage extends StatelessWidget {
   final String bookName;
   final int bookId;
+  final int numberOfHadith;
   final String bookAvrCode;
   final List<ChapterModel> chapterList;
   const ChapterPage(
@@ -18,13 +19,17 @@ class ChapterPage extends StatelessWidget {
       required this.bookName,
       required this.bookId,
       required this.chapterList,
+      required this.numberOfHadith,
       required this.bookAvrCode});
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ChapterController>(builder: (controller) {
       return Scaffold(
-          appBar: customAppBar(appBarTitle: bookName, context: context),
+          appBar: customAppBar(
+              appBarTitle: bookName,
+              appBarSubTitle: numberOfHadith.toString(),
+              context: context),
           body: SafeArea(
               child: Padding(
             padding: screenPaddingH(),
@@ -53,6 +58,7 @@ class ChapterPage extends StatelessWidget {
                           data.title.toString(),
                           style: AppTextStyle.bTittleBig4(context: context),
                         ),
+                        subtitle: Text("${data.hadisRange}"),
                         trailing: Icon(
                           Icons.arrow_forward_ios_outlined,
                           size: 20.sp,

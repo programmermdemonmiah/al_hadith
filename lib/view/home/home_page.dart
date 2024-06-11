@@ -35,7 +35,8 @@ class HomePage extends StatelessWidget {
                         controller.gotoChapterPage(
                             data.bookId!,
                             data.titleBn.toString(),
-                            data.bookAbvrCode.toString());
+                            data.bookAbvrCode.toString(),
+                            data.numberOfHadis!);
                       },
                       child: Container(
                         height: 100.sp,

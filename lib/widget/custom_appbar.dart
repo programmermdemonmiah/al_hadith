@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 PreferredSizeWidget customAppBar(
     {required String appBarTitle,
     required BuildContext context,
-    String? appBarSubTitle,
+    required String appBarSubTitle,
     Color? appBarBg,
     Color? leadingColor,
     Color? textColor}) {
@@ -32,13 +32,11 @@ PreferredSizeWidget customAppBar(
           style: AppTextStyle.bTittleBig1(
               context: context, color: textColor ?? Colors.white),
         ),
-        appBarSubTitle != null
-            ? Text(
-                appBarSubTitle!,
-                style: AppTextStyle.bText4(
-                    context: context, color: textColor ?? Colors.white),
-              )
-            : const SizedBox.shrink(),
+        Text(
+          appBarSubTitle,
+          style: AppTextStyle.bText4(
+              context: context, color: textColor ?? Colors.white),
+        ),
       ],
     ),
     actions: [
