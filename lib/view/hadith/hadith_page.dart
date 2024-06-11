@@ -224,7 +224,9 @@ class HadithPage extends StatelessWidget {
                                         "${hadithList[i].narrator} থেকে বর্ণিত:",
                                         textAlign: TextAlign.left,
                                         style: AppTextStyle.bText1(
-                                            context: context, arabic: false),
+                                            color: primaryColor,
+                                            context: context,
+                                            arabic: false),
                                       ),
                                       gapH(3),
                                       Text(

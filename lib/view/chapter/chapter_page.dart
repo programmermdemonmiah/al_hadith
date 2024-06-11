@@ -58,7 +58,8 @@ class ChapterPage extends StatelessWidget {
                           data.title.toString(),
                           style: AppTextStyle.bTittleBig4(context: context),
                         ),
-                        subtitle: Text("${data.hadisRange}"),
+                        subtitle: Text("${data.hadisRange}",
+                            style: AppTextStyle.bParagraph2(context: context)),
                         trailing: Icon(
                           Icons.arrow_forward_ios_outlined,
                           size: 20.sp,
