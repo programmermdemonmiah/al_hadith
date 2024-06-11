@@ -27,6 +27,7 @@ PreferredSizeWidget customAppBar(
           size: 25.sp,
         )),
     title: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           appBarTitle,
