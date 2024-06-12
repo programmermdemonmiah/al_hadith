@@ -8,7 +8,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     getBooksData();
-    // TODO: implement onInit
+
     super.onInit();
   }
 
@@ -21,7 +21,6 @@ class HomeController extends GetxController {
       booksList.add(BooksModel.fromJson(data));
     }
     update();
-    print(booksList);
   }
 
   //route Chapter page ============

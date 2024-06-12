@@ -16,7 +16,6 @@ class HadithController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     getSectionData();
     getHadithData();
@@ -34,7 +33,6 @@ class HadithController extends GetxController {
       }
     }
     update();
-    print(sectionsList);
   }
 
   getHadithData() async {
@@ -46,7 +44,6 @@ class HadithController extends GetxController {
       }
     }
     update();
-    print(hadithList);
   }
 
   //========

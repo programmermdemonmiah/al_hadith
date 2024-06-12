@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 class ChapterController extends GetxController {
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     getChapterData();
   }
@@ -24,7 +23,6 @@ class ChapterController extends GetxController {
       }
     }
     update();
-    print(chapterList);
   }
 
   //route Hadith page ============
