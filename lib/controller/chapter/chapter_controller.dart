@@ -1,8 +1,6 @@
 import 'package:al_hadith/controller/common/db_controller.dart';
 import 'package:al_hadith/controller/hadith/hadith_controller.dart';
 import 'package:al_hadith/model/chapter_model.dart';
-import 'package:al_hadith/model/hadith_model.dart';
-import 'package:al_hadith/model/section_model.dart';
 import 'package:al_hadith/view/hadith/hadith_page.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +19,9 @@ class ChapterController extends GetxController {
     chapterList.clear();
     final allData = await DBController.getChapterData();
     for (var data in allData) {
-      chapterList.add(ChapterModel.fromJson(data));
+      if (bookId == data["book_id"]) {
+        chapterList.add(ChapterModel.fromJson(data));
+      }
     }
     update();
     print(chapterList);

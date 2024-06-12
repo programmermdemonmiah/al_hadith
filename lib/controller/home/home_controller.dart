@@ -1,7 +1,6 @@
 import 'package:al_hadith/controller/chapter/chapter_controller.dart';
 import 'package:al_hadith/controller/common/db_controller.dart';
 import 'package:al_hadith/model/books_model.dart';
-import 'package:al_hadith/model/chapter_model.dart';
 import 'package:al_hadith/view/chapter/chapter_page.dart';
 import 'package:get/get.dart';
 
@@ -9,8 +8,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     getBooksData();
-    // getSectionData();
-    // getHadithData();
     // TODO: implement onInit
     super.onInit();
   }
