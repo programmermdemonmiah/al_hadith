@@ -6,12 +6,14 @@ import 'package:al_hadith/utils/ui_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:screenshot/screenshot.dart';
 
 Future<void> hadithModalBottomSheet({
   required BuildContext context,
   required HadithController controller,
   required HadithModel hadith,
   required String bookName,
+  required ScreenshotController screenshotcontroller,
 }) async {
   return showModalBottomSheet(
     context: context,
@@ -87,7 +89,7 @@ Future<void> hadithModalBottomSheet({
                 context: context,
                 onTap: () {
                   Get.back();
-                  controller.takeScreenshotAndShare();
+                  controller.takeScreenshotAndShare(screenshotcontroller);
                 },
                 icon: Icons.image_outlined,
                 itemName: "স্ক্রিনশট শেয়ার"),

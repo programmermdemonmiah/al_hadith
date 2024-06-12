@@ -1,6 +1,4 @@
 import 'package:al_hadith/controller/hadith/hadith_controller.dart';
-import 'package:al_hadith/model/hadith_model.dart';
-import 'package:al_hadith/model/section_model.dart';
 import 'package:al_hadith/utils/app_colors.dart';
 import 'package:al_hadith/utils/app_constant.dart';
 import 'package:al_hadith/utils/english_to_bangla_convert.dart';
@@ -12,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:screenshot/screenshot.dart';
 
 class HadithPage extends StatelessWidget {
   final String bookName;
@@ -91,157 +90,172 @@ class HadithPage extends StatelessWidget {
                           for (int i = 0; i < controller.hadithList.length; i++)
                             if (section.sectionId ==
                                 controller.hadithList[i].sectionId)
-                              Obx(
-                                () => Padding(
+                              Obx(() {
+                                ScreenshotController screenshotController =
+                                    ScreenshotController();
+                                return Padding(
                                   padding: edgeInsetsSym(0, 1.5),
-                                  child: Container(
-                                    padding: edgeInsetsOnly(3, 5, 3, 3),
-                                    decoration: BoxDecoration(
-                                        borderRadius: radiusAll(2.5),
-                                        color: whiteBg),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Stack(
-                                                  alignment: Alignment.center,
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                      AppConstant.avrIconSvg,
-                                                      color: primaryColor,
-                                                      width: 50.sp,
-                                                    ),
-                                                    Text(
-                                                      avrCode.toString(),
+                                  child: Screenshot(
+                                    controller: screenshotController,
+                                    child: Container(
+                                      padding: edgeInsetsOnly(3, 5, 3, 3),
+                                      decoration: BoxDecoration(
+                                          borderRadius: radiusAll(2.5),
+                                          color: whiteBg),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Stack(
+                                                    alignment: Alignment.center,
+                                                    children: [
+                                                      SvgPicture.asset(
+                                                        AppConstant.avrIconSvg,
+                                                        color: primaryColor,
+                                                        width: 50.sp,
+                                                      ),
+                                                      Text(
+                                                        avrCode.toString(),
+                                                        style: AppTextStyle
+                                                            .bTittleBig3(
+                                                                context:
+                                                                    context,
+                                                                color: Colors
+                                                                    .white),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  gapW(2),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        bookName,
+                                                        style: AppTextStyle
+                                                            .bTittleBig2(
+                                                                context:
+                                                                    context),
+                                                      ),
+                                                      Text(
+                                                        "হাদিস: ${EnglishToBanglaConvert.convertToBanglaNumber(controller.hadithList[i].hadithId)}",
+                                                        style: AppTextStyle.bText2(
+                                                            context: context,
+                                                            color: Color(int.parse(
+                                                                "0xff${controller.hadithList[i].gradeColor.replaceAll("#", "")}"))),
+                                                      ),
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  controller.savedHadithIdList
+                                                          .contains(controller
+                                                              .hadithList[i]
+                                                              .hadithId)
+                                                      ? InkWell(
+                                                          onTap: () {
+                                                            controller
+                                                                .savedHadithIdList
+                                                                .remove(controller
+                                                                    .hadithList[
+                                                                        i]
+                                                                    .hadithId);
+                                                          },
+                                                          child: Icon(
+                                                            Icons.turned_in,
+                                                            color: primaryColor,
+                                                            size: 28.sp,
+                                                          ),
+                                                        )
+                                                      : const SizedBox.shrink(),
+                                                  gapW(1),
+                                                  Container(
+                                                    alignment: Alignment.center,
+                                                    padding:
+                                                        edgeInsetsSym(3, 1),
+                                                    decoration: BoxDecoration(
+                                                        color: Color(int.parse(
+                                                            "0xff${controller.hadithList[i].gradeColor.replaceAll("#", "")}")),
+                                                        borderRadius:
+                                                            radiusAll(6)),
+                                                    child: Text(
+                                                      controller
+                                                          .hadithList[i].grade
+                                                          .toString(),
                                                       style: AppTextStyle
-                                                          .bTittleBig3(
+                                                          .bTittleSmall1(
                                                               context: context,
                                                               color:
                                                                   Colors.white),
-                                                    )
-                                                  ],
-                                                ),
-                                                gapW(2),
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      bookName,
-                                                      style: AppTextStyle
-                                                          .bTittleBig2(
-                                                              context: context),
                                                     ),
-                                                    Text(
-                                                      "হাদিস: ${EnglishToBanglaConvert.convertToBanglaNumber(controller.hadithList[i].hadithId)}",
-                                                      style: AppTextStyle.bText2(
+                                                  ),
+                                                  gapW(2),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      hadithModalBottomSheet(
                                                           context: context,
-                                                          color: Color(int.parse(
-                                                              "0xff${controller.hadithList[i].gradeColor.replaceAll("#", "")}"))),
+                                                          bookName: bookName,
+                                                          hadith: controller
+                                                              .hadithList[i],
+                                                          screenshotcontroller:
+                                                              screenshotController,
+                                                          controller:
+                                                              controller);
+                                                    },
+                                                    splashColor: Colors.black12,
+                                                    child: Icon(
+                                                      Icons.more_vert,
+                                                      size: 25.sp,
+                                                      color: Colors.black45,
                                                     ),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                controller.savedHadithIdList
-                                                        .contains(controller
-                                                            .hadithList[i]
-                                                            .hadithId)
-                                                    ? InkWell(
-                                                        onTap: () {
-                                                          controller
-                                                              .savedHadithIdList
-                                                              .remove(controller
-                                                                  .hadithList[i]
-                                                                  .hadithId);
-                                                        },
-                                                        child: Icon(
-                                                          Icons.turned_in,
-                                                          color: primaryColor,
-                                                          size: 28.sp,
-                                                        ),
-                                                      )
-                                                    : const SizedBox.shrink(),
-                                                gapW(1),
-                                                Container(
-                                                  alignment: Alignment.center,
-                                                  padding: edgeInsetsSym(3, 1),
-                                                  decoration: BoxDecoration(
-                                                      color: Color(int.parse(
-                                                          "0xff${controller.hadithList[i].gradeColor.replaceAll("#", "")}")),
-                                                      borderRadius:
-                                                          radiusAll(6)),
-                                                  child: Text(
-                                                    controller
-                                                        .hadithList[i].grade
-                                                        .toString(),
-                                                    style: AppTextStyle
-                                                        .bTittleSmall1(
-                                                            context: context,
-                                                            color:
-                                                                Colors.white),
-                                                  ),
-                                                ),
-                                                gapW(2),
-                                                InkWell(
-                                                  onTap: () {
-                                                    hadithModalBottomSheet(
-                                                        context: context,
-                                                        bookName: bookName,
-                                                        hadith: controller
-                                                            .hadithList[i],
-                                                        controller: controller);
-                                                  },
-                                                  splashColor: Colors.black12,
-                                                  child: Icon(
-                                                    Icons.more_vert,
-                                                    size: 25.sp,
-                                                    color: Colors.black45,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        gapH(3),
-                                        Align(
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            controller.hadithList[i].ar,
-                                            textAlign: TextAlign.right,
-                                            style: AppTextStyle.bText1(
-                                                context: context, arabic: true),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
                                           ),
-                                        ),
-                                        gapH(3),
-                                        Text(
-                                          "${controller.hadithList[i].narrator} থেকে বর্ণিত:",
-                                          textAlign: TextAlign.left,
-                                          style: AppTextStyle.bText1(
-                                              color: primaryColor,
-                                              context: context,
-                                              arabic: false),
-                                        ),
-                                        gapH(3),
-                                        Text(
-                                          controller.hadithList[i].bn,
-                                          textAlign: TextAlign.left,
-                                          style: AppTextStyle.bText1(
-                                              context: context, arabic: false),
-                                        ),
-                                      ],
+                                          gapH(3),
+                                          Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              controller.hadithList[i].ar,
+                                              textAlign: TextAlign.right,
+                                              style: AppTextStyle.bText1(
+                                                  context: context,
+                                                  arabic: true),
+                                            ),
+                                          ),
+                                          gapH(3),
+                                          Text(
+                                            "${controller.hadithList[i].narrator} থেকে বর্ণিত:",
+                                            textAlign: TextAlign.left,
+                                            style: AppTextStyle.bText1(
+                                                color: primaryColor,
+                                                context: context,
+                                                arabic: false),
+                                          ),
+                                          gapH(3),
+                                          Text(
+                                            controller.hadithList[i].bn,
+                                            textAlign: TextAlign.left,
+                                            style: AppTextStyle.bText1(
+                                                context: context,
+                                                arabic: false),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
+                                );
+                              }),
                         ],
                       ),
                     );

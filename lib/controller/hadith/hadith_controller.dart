@@ -7,6 +7,9 @@ import 'package:al_hadith/utils/tost/tost.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:screenshot/screenshot.dart';
 
 class HadithController extends GetxController {
   int? bookId;
@@ -61,19 +64,35 @@ class HadithController extends GetxController {
     }
   }
 
-  // final ScreenshotController screenshotController = ScreenshotController();
+  Future<void> takeScreenshotAndShare(
+      ScreenshotController screenshotController) async {
+    try {
+      if (await Permission.storage.request().isGranted) {
+        await screenshotController
+            .capture(delay: const Duration(milliseconds: 20))
+            .then((image) async {
+          if (image != null) {
+            print("done 1");
+            final directory = await getTemporaryDirectory();
+            print("done 2");
 
-  Future<void> takeScreenshotAndShare() async {
-    // final Uint8List? image = await screenshotController.capture();
-    // if (image != null) {
-    //   // final directory = await getTemporaryDirectory();
-    //   String fileName = 'screenshot.png';
-    //   String filePath = fileName; //${directory.path}
-    //   final imageFile = File(filePath);
-    //   await imageFile.writeAsBytes(image);
-    //   // Share.shareFiles([filePath], text: 'Check out my screenshot!');
-    // } else {
-    //   print('Failed to capture screenshot');
-    // }
+            String fileName = 'al_hadish_screenshot.png';
+            String filePath = "${directory.path}/$fileName";
+            print("done 3");
+
+            final imageFile = File(filePath);
+            print("done 4");
+
+            await imageFile.writeAsBytes(image);
+            print("done 5");
+
+            // Share.shareFiles([filePath], text: 'Check out my screenshot!');
+            print(imageFile);
+          }
+        });
+      }
+    } catch (e) {
+      print("Error: $e");
+    }
   }
 }
