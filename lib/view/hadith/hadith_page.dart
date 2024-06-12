@@ -17,15 +17,11 @@ class HadithPage extends StatelessWidget {
   final String bookName;
   final String chapterName;
   final String avrCode;
-  final List<SectionModel> sectionList;
-  final List<HadithModel> hadithList;
   const HadithPage(
       {super.key,
       required this.bookName,
       required this.chapterName,
-      required this.avrCode,
-      required this.sectionList,
-      required this.hadithList});
+      required this.avrCode});
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +47,9 @@ class HadithPage extends StatelessWidget {
                 child: ListView.builder(
                   shrinkWrap: true,
                   primary: false,
-                  itemCount: sectionList.length,
+                  itemCount: controller.sectionsList.length,
                   itemBuilder: (context, index) {
-                    final section = sectionList[index];
+                    final section = controller.sectionsList[index];
                     return Padding(
                       padding: edgeInsetsSym(0, 2.5),
                       child: Column(
@@ -92,8 +88,9 @@ class HadithPage extends StatelessWidget {
                             ),
                           ),
                           gapH(3),
-                          for (int i = 0; i < hadithList.length; i++)
-                            if (section.sectionId == hadithList[i].sectionId)
+                          for (int i = 0; i < controller.hadithList.length; i++)
+                            if (section.sectionId ==
+                                controller.hadithList[i].sectionId)
                               Obx(
                                 () => Padding(
                                   padding: edgeInsetsSym(0, 1.5),
@@ -142,11 +139,11 @@ class HadithPage extends StatelessWidget {
                                                               context: context),
                                                     ),
                                                     Text(
-                                                      "হাদিস: ${EnglishToBanglaConvert.convertToBanglaNumber(hadithList[i].hadithId)}",
+                                                      "হাদিস: ${EnglishToBanglaConvert.convertToBanglaNumber(controller.hadithList[i].hadithId)}",
                                                       style: AppTextStyle.bText2(
                                                           context: context,
                                                           color: Color(int.parse(
-                                                              "0xff${hadithList[i].gradeColor.replaceAll("#", "")}"))),
+                                                              "0xff${controller.hadithList[i].gradeColor.replaceAll("#", "")}"))),
                                                     ),
                                                   ],
                                                 )
@@ -155,15 +152,16 @@ class HadithPage extends StatelessWidget {
                                             Row(
                                               children: [
                                                 controller.savedHadithIdList
-                                                        .contains(hadithList[i]
+                                                        .contains(controller
+                                                            .hadithList[i]
                                                             .hadithId)
                                                     ? InkWell(
                                                         onTap: () {
                                                           controller
                                                               .savedHadithIdList
-                                                              .remove(
-                                                                  hadithList[i]
-                                                                      .hadithId);
+                                                              .remove(controller
+                                                                  .hadithList[i]
+                                                                  .hadithId);
                                                         },
                                                         child: Icon(
                                                           Icons.turned_in,
@@ -178,12 +176,12 @@ class HadithPage extends StatelessWidget {
                                                   padding: edgeInsetsSym(3, 1),
                                                   decoration: BoxDecoration(
                                                       color: Color(int.parse(
-                                                          "0xff${hadithList[i].gradeColor.replaceAll("#", "")}")),
+                                                          "0xff${controller.hadithList[i].gradeColor.replaceAll("#", "")}")),
                                                       borderRadius:
                                                           radiusAll(6)),
                                                   child: Text(
-                                                    hadithList[i]
-                                                        .grade
+                                                    controller
+                                                        .hadithList[i].grade
                                                         .toString(),
                                                     style: AppTextStyle
                                                         .bTittleSmall1(
@@ -198,7 +196,8 @@ class HadithPage extends StatelessWidget {
                                                     hadithModalBottomSheet(
                                                         context: context,
                                                         bookName: bookName,
-                                                        hadith: hadithList[i],
+                                                        hadith: controller
+                                                            .hadithList[i],
                                                         controller: controller);
                                                   },
                                                   splashColor: Colors.black12,
@@ -216,7 +215,7 @@ class HadithPage extends StatelessWidget {
                                         Align(
                                           alignment: Alignment.centerRight,
                                           child: Text(
-                                            hadithList[i].ar,
+                                            controller.hadithList[i].ar,
                                             textAlign: TextAlign.right,
                                             style: AppTextStyle.bText1(
                                                 context: context, arabic: true),
@@ -224,7 +223,7 @@ class HadithPage extends StatelessWidget {
                                         ),
                                         gapH(3),
                                         Text(
-                                          "${hadithList[i].narrator} থেকে বর্ণিত:",
+                                          "${controller.hadithList[i].narrator} থেকে বর্ণিত:",
                                           textAlign: TextAlign.left,
                                           style: AppTextStyle.bText1(
                                               color: primaryColor,
@@ -233,7 +232,7 @@ class HadithPage extends StatelessWidget {
                                         ),
                                         gapH(3),
                                         Text(
-                                          hadithList[i].bn,
+                                          controller.hadithList[i].bn,
                                           textAlign: TextAlign.left,
                                           style: AppTextStyle.bText1(
                                               context: context, arabic: false),

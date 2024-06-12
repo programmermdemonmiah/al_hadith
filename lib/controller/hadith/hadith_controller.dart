@@ -1,12 +1,55 @@
 import 'dart:io';
 
+import 'package:al_hadith/controller/common/db_controller.dart';
+import 'package:al_hadith/model/hadith_model.dart';
+import 'package:al_hadith/model/section_model.dart';
 import 'package:al_hadith/utils/tost/tost.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HadithController extends GetxController {
+  int? bookId;
+  int? chapterId;
   RxList savedHadithIdList = [].obs;
+//===========
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    getSectionData();
+    getHadithData();
+  }
+
+  RxList<SectionModel> sectionsList = RxList<SectionModel>();
+  RxList<HadithModel> hadithList = RxList<HadithModel>();
+
+  getSectionData() async {
+    sectionsList.clear();
+    final allData = await DBController.getSectionData();
+    for (var data in allData) {
+      if (bookId == data["book_id"] && chapterId == data["chapter_id"]) {
+        sectionsList.add(SectionModel.fromJson(data));
+      }
+    }
+    update();
+    print(sectionsList);
+  }
+
+  getHadithData() async {
+    hadithList.clear();
+    final allData = await DBController.getHadithData();
+    for (var data in allData) {
+      if (bookId == data["book_id"] && chapterId == data["chapter_id"]) {
+        hadithList.add(HadithModel.fromJson(data));
+      }
+    }
+    update();
+    print(hadithList);
+  }
+
+  //========
 
   copyText(BuildContext context, String textToCopy) {
     Clipboard.setData(ClipboardData(text: textToCopy));

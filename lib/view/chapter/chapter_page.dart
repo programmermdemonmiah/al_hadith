@@ -11,15 +11,11 @@ import 'package:get/get.dart';
 
 class ChapterPage extends StatelessWidget {
   final String bookName;
-  final int bookId;
   final int numberOfHadith;
   final String bookAvrCode;
-  final List<ChapterModel> chapterList;
   const ChapterPage(
       {super.key,
       required this.bookName,
-      required this.bookId,
-      required this.chapterList,
       required this.numberOfHadith,
       required this.bookAvrCode});
 
@@ -51,19 +47,15 @@ class ChapterPage extends StatelessWidget {
                   ListView.builder(
                     shrinkWrap: true,
                     primary: false,
-                    itemCount: chapterList.length,
+                    itemCount: controller.chapterList.length,
                     itemBuilder: (context, index) {
-                      final data = chapterList[index];
+                      final data = controller.chapterList[index];
                       return Container(
                         color: Colors.white,
                         child: ListTile(
                           onTap: () {
-                            controller.goToHadithPage(
-                                bookId,
-                                bookName,
-                                bookAvrCode,
-                                data.chapterId!,
-                                data.title.toString());
+                            controller.goToHadithPage(bookName, bookAvrCode,
+                                data.chapterId!, data.title.toString());
                           },
                           visualDensity: const VisualDensity(vertical: 0),
                           title: Text(

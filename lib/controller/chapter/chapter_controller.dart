@@ -1,4 +1,6 @@
 import 'package:al_hadith/controller/common/db_controller.dart';
+import 'package:al_hadith/controller/hadith/hadith_controller.dart';
+import 'package:al_hadith/model/chapter_model.dart';
 import 'package:al_hadith/model/hadith_model.dart';
 import 'package:al_hadith/model/section_model.dart';
 import 'package:al_hadith/view/hadith/hadith_page.dart';
@@ -9,60 +11,33 @@ class ChapterController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    getSectionData();
-    getHadithData();
+    getChapterData();
   }
 
-  RxList<SectionModel> sectionsList = RxList<SectionModel>();
-  RxList<HadithModel> hadithList = RxList<HadithModel>();
+  int? bookId;
+  RxList<ChapterModel> chapterList = RxList<ChapterModel>();
 
-  getSectionData() async {
-    sectionsList.clear();
-    final allData = await DBController.getSectionData();
+  getChapterData() async {
+    chapterList.clear();
+    final allData = await DBController.getChapterData();
     for (var data in allData) {
-      sectionsList.add(SectionModel.fromJson(data));
+      chapterList.add(ChapterModel.fromJson(data));
     }
     update();
-    print(sectionsList);
-  }
-
-  getHadithData() async {
-    hadithList.clear();
-    final allData = await DBController.getHadithData();
-    for (var data in allData) {
-      hadithList.add(HadithModel.fromJson(data));
-    }
-    update();
-    print(hadithList);
+    print(chapterList);
   }
 
   //route Hadith page ============
-  goToHadithPage(int bookId, String bookTitle, String avrCode, int chapterId,
-      String chapterName) {
-    List<SectionModel> listOfSection = [];
-    List<HadithModel> listOfHadith = [];
-    for (int j = 0; j < sectionsList.length; j++) {
-      final section = sectionsList[j];
-      if (section.bookId == bookId && section.chapterId == chapterId) {
-        listOfSection.add(section);
-        //hadith check start ===
-        for (int k = 0; k < hadithList.length; k++) {
-          final hadith = hadithList[k];
-          if (bookId == hadith.bookId &&
-              chapterId == hadith.chapterId &&
-              section.sectionId == hadith.sectionId) {
-            listOfHadith.add(hadith);
-          }
-        }
-      }
-    }
-
+  goToHadithPage(
+      String bookTitle, String avrCode, int chapterId, String chapterName) {
+    Get.find<HadithController>().bookId = bookId;
+    Get.find<HadithController>().chapterId = chapterId;
+    update();
     update();
     Get.to(HadithPage(
-        bookName: bookTitle,
-        chapterName: chapterName,
-        avrCode: avrCode,
-        sectionList: listOfSection,
-        hadithList: listOfHadith));
+      bookName: bookTitle,
+      chapterName: chapterName,
+      avrCode: avrCode,
+    ));
   }
 }

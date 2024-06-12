@@ -1,3 +1,4 @@
+import 'package:al_hadith/controller/chapter/chapter_controller.dart';
 import 'package:al_hadith/controller/common/db_controller.dart';
 import 'package:al_hadith/model/books_model.dart';
 import 'package:al_hadith/model/chapter_model.dart';
@@ -8,7 +9,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     getBooksData();
-    getChapterData();
     // getSectionData();
     // getHadithData();
     // TODO: implement onInit
@@ -16,8 +16,6 @@ class HomeController extends GetxController {
   }
 
   RxList<BooksModel> booksList = RxList<BooksModel>();
-
-  RxList<ChapterModel> chapterList = RxList<ChapterModel>();
 
   getBooksData() async {
     booksList.clear();
@@ -29,36 +27,16 @@ class HomeController extends GetxController {
     print(booksList);
   }
 
-  getChapterData() async {
-    chapterList.clear();
-    final allData = await DBController.getChapterData();
-    for (var data in allData) {
-      chapterList.add(ChapterModel.fromJson(data));
-    }
-    update();
-    print(chapterList);
-  }
-
   //route Chapter page ============
 
   gotoChapterPage(
       int bookId, String bookTitle, String avrCode, int numberOfHadith) {
-    List<ChapterModel> listofChapter = [];
-    for (int i = 0; i < chapterList.length; i++) {
-      final chapter = chapterList[i];
-      if (bookId == chapter.bookId) {
-        listofChapter.add(chapter);
-      }
-    }
+    Get.find<ChapterController>().bookId = bookId;
     update();
-    print(listofChapter);
     update();
     Get.to(ChapterPage(
-      bookName: bookTitle,
-      bookId: bookId,
-      numberOfHadith: numberOfHadith,
-      bookAvrCode: avrCode,
-      chapterList: listofChapter,
-    ));
+        bookName: bookTitle,
+        numberOfHadith: numberOfHadith,
+        bookAvrCode: avrCode));
   }
 }
