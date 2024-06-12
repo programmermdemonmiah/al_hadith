@@ -72,22 +72,16 @@ class HadithController extends GetxController {
             .capture(delay: const Duration(milliseconds: 20))
             .then((image) async {
           if (image != null) {
-            print("done 1");
             final directory = await getTemporaryDirectory();
-            print("done 2");
 
             String fileName = 'al_hadish_screenshot.png';
             String filePath = "${directory.path}/$fileName";
-            print("done 3");
 
             final imageFile = File(filePath);
-            print("done 4");
 
             await imageFile.writeAsBytes(image);
-            print("done 5");
 
             // Share.shareFiles([filePath], text: 'Check out my screenshot!');
-            print(imageFile);
           }
         });
       }
